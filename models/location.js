@@ -2,7 +2,6 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const LocationSchema = new Schema({
-  _id: Schema.Types.ObjectId,
   slug: String,
   items: {
     _id: Schema.Types.ObjectId,

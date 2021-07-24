@@ -1,4 +1,4 @@
-const location = require('./location')
-const item = require('./item')
+const Location = require('./location')
+const Item = require('./item')
 
-module.exports = { location, item }
+module.exports = { Location, Item }
