@@ -1,11 +1,17 @@
 const Router = require('koa-router')
 const { adminService } = require('../services')
+const filterItemQuantity = require('../libs')
 
 const router = new Router({ prefix: '/admin' })
 
 router
   .get('/', async (ctx, _) => {
     ctx.body = await adminService.getAllLocationAndItem()
+  })
+  .get('/check-quantity', async (ctx, _) => {
+    const items = await adminService.getAllLocationAndItem()
+    const itemNearlyOutOfStock = filterItemQuantity(items)
+    ctx.body = itemNearlyOutOfStock
   })
   .get('/:location', async (ctx, _) => {
     const { location } = ctx.params
