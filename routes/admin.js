@@ -17,5 +17,8 @@ router
   .put('/add-item', async (ctx, _) => {
     ctx.body = await adminService.addItemInLocation(ctx)
   })
+  .put('/restock', async (ctx, _) => {
+    ctx.body = await adminService.restockItem(ctx)
+  })
 
 module.exports = router

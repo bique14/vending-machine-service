@@ -42,9 +42,27 @@ const addItemInLocation = async (data) => {
   )
 }
 
+const restockItem = async (data) => {
+  const { body } = data.request
+
+  return Location.update(
+    { slug: body.location, 'items.slug': body.item },
+    {
+      $set: {
+        'items.$.quantity.remaining': 100
+      }
+    },
+    (error, result) => {
+      if (error) return console.error(error)
+      return result
+    }
+  )
+}
+
 module.exports = {
   getAllLocationAndItem,
   getItemsByLocation,
   createLocation,
-  addItemInLocation
+  addItemInLocation,
+  restockItem
 }

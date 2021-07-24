@@ -26,7 +26,7 @@
  * method: POST
  * @param {object} location
  *
- * [] restock item
+ * [✅] restock item
  * method: PUT
  * @param {string} locationId
  * @param {string} itemId
