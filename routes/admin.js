@@ -1,9 +1,21 @@
 const Router = require('koa-router')
+const { adminService } = require('../services')
+
 const router = new Router({ prefix: '/admin' })
 
-router.get('/', (ctx, next) => {
-  ctx.status = 200
-  ctx.body = { msg: 'Hi Admin! 🇹🇭' }
-})
+router
+  .get('/', async (ctx, _) => {
+    ctx.body = await adminService.getAllLocationAndItem()
+  })
+  .get('/:location', async (ctx, _) => {
+    const { location } = ctx.params
+    ctx.body = await adminService.getItemsByLocation(location)
+  })
+  .post('/create-location', async (ctx, _) => {
+    ctx.body = await adminService.createLocation(ctx)
+  })
+  .put('/add-item', async (ctx, _) => {
+    ctx.body = await adminService.addItemInLocation(ctx)
+  })
 
 module.exports = router

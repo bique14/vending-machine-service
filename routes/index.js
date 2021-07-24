@@ -12,21 +12,19 @@
  * @param {string} itemId
  *
  * 🌞 Admin side
- * [] show all vending machine location
- * [] show all items
+ * [✅] show all vending machine location
+ * [✅] show all items
  * method: GET
  * @param {} /
  *
- * [] add new item
+ * [✅] add new item in location
  * method: PUT
  * @param {string} locationId
  * @param {object} item
  *
- * [] add new location
- * method: PUT
- * @param {string} locationId
- * @param {string} locationSlug
- * @param {object} item
+ * [✅] add new location
+ * method: POST
+ * @param {object} location
  *
  * [] restock item
  * method: PUT
