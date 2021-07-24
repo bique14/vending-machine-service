@@ -1,4 +1,4 @@
 const { connect, mongoose } = require('./database')
-const item = require('./item.service')
+const adminService = require('./admin.service')
 
-module.exports = { connect, mongoose, item }
+module.exports = { connect, mongoose, adminService }
