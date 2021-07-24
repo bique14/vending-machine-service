@@ -1,20 +1,11 @@
 const mongoose = require('mongoose')
+const Item = require('./item')
 const Schema = mongoose.Schema
 
 const LocationSchema = new Schema({
   slug: String,
-  items: [
-    {
-      slug: String,
-      name: String,
-      image: String,
-      price: String,
-      quantity: {
-        total: Number,
-        remaining: Number
-      }
-    }
-  ]
+  name: String,
+  items: { type: [], ref: 'Item' }
 })
 
 module.exports = mongoose.model('Location', LocationSchema)
