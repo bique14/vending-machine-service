@@ -1,13 +1,13 @@
 const mongoose = require('mongoose')
 const { DB_HOST, DB_PORT, DB_NAME } = require('../config')
 
-const init = () => {
+const connect = () => {
   mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`)
   mongoose.connection.once('open', () => {
-    console.log('👍 Connected to database')
+    console.log(`👍 Connected to database ${DB_HOST}:${DB_PORT}/${DB_NAME}`)
   })
 
   mongoose.connection.on('error', console.error)
 }
 
-module.exports = init
+module.exports = { connect, mongoose }
