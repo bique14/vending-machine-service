@@ -36,6 +36,16 @@
  * method: GET
  * @param {} /
  *
+ * [✅] force item to out of stock
+ * method: PUT
+ * @param {string} locationSlug
+ * @param {string} itemSlug
+ *
+ * [✅] remove item
+ * method: DELETE
+ * @param {string} locationSlug
+ * @param {string} itemSlug
+ *
  */
 
 const admin = require('./admin')

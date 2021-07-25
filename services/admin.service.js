@@ -56,10 +56,46 @@ const restockItem = async (data) => {
   )
 }
 
+const forceOutOfStock = (data) => {
+  const { body } = data.request
+
+  return Location.updateOne(
+    { slug: body.location, 'items.slug': body.item },
+    {
+      $set: {
+        'items.$.quantity.remaining': 0
+      }
+    },
+    (error, result) => {
+      if (error) return console.error(error)
+      return result
+    }
+  )
+}
+
+const removeItem = (data) => {
+  const { body } = data.request
+
+  return Location.updateOne(
+    { slug: body.location },
+    {
+      $pull: {
+        items: { slug: body.item }
+      }
+    },
+    (error, result) => {
+      if (error) return console.error(error)
+      return result
+    }
+  )
+}
+
 module.exports = {
   getAllLocationAndItem,
   getItemsByLocation,
   createLocation,
   addItemInLocation,
-  restockItem
+  restockItem,
+  forceOutOfStock,
+  removeItem
 }

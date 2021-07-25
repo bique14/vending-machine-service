@@ -271,6 +271,70 @@
 						"description": "Restock item by location and item slug"
 					},
 					"response": []
+				},
+				{
+					"name": "http://localhost:20001/admin/force-out-of-stock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"ratchatewi\",\n    \"item\": \"item-in-ratchatewi-2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:20001/admin/force-out-of-stock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"admin",
+								"force-out-of-stock"
+							]
+						},
+						"description": "Force item to out of stock"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:20001/admin/remove-item",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"ratchatewi\",\n    \"item\": \"item-in-ratchatewi-2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:20001/admin/remove-item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"admin",
+								"remove-item"
+							]
+						},
+						"description": "Remove item"
+					},
+					"response": []
 				}
 			]
 		}

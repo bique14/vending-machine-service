@@ -26,5 +26,11 @@ router
   .put('/restock', async (ctx, _) => {
     ctx.body = await adminService.restockItem(ctx)
   })
+  .put('/force-out-of-stock', async (ctx, _) => {
+    ctx.body = await adminService.forceOutOfStock(ctx)
+  })
+  .delete('/remove-item', async (ctx, _) => {
+    ctx.body = await adminService.removeItem(ctx)
+  })
 
 module.exports = router
