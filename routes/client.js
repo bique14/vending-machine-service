@@ -11,7 +11,16 @@ router
   .put('/buy', async (ctx, _) => {
     const buy = await clientService.buyItem(ctx)
     ctx.status = buy.status
-    ctx.body = { location: buy.location, item: buy.item, message: buy?.message }
+
+    if (buy.status !== 200) {
+      ctx.body = {
+        location: buy.location,
+        item: buy.item,
+        message: buy.message
+      }
+    } else {
+      ctx.body = { location: buy.location, item: buy.item }
+    }
   })
 
 module.exports = router
