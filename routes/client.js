@@ -4,6 +4,9 @@ const { clientService } = require('../services')
 const router = new Router()
 
 router
+  .get('/', async (ctx, _) => {
+    ctx.body = await clientService.getAllLocation()
+  })
   .get('/:location', async (ctx, _) => {
     const { location } = ctx.params
     ctx.body = await clientService.getItemsByLocation(location)

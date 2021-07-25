@@ -1,5 +1,12 @@
 const { Location } = require('../models')
 
+const getAllLocation = async () => {
+  return Location.find({}, (error, result) => {
+    if (error) return console.error(error)
+    return result
+  })
+}
+
 const getItemsByLocation = async (locationSlug) => {
   return Location.find({ slug: locationSlug }, (error, result) => {
     if (error) return console.error(error)
@@ -56,6 +63,7 @@ const buyItem = async (data) => {
 }
 
 module.exports = {
+  getAllLocation,
   getItemsByLocation,
   buyItem
 }
