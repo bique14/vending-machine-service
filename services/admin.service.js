@@ -45,7 +45,7 @@ const addItemInLocation = async (data) => {
 const restockItem = async (data) => {
   const { body } = data.request
 
-  return Location.update(
+  return Location.updateOne(
     { slug: body.location, 'items.slug': body.item },
     {
       $set: {
