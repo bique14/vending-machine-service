@@ -13,8 +13,6 @@ app.use(admin.allowedMethods())
 app.use(client.routes())
 app.use(client.allowedMethods())
 
-console.log(`server start at http://localhost:${NODE_PORT}`)
-
 const server = app.listen(NODE_PORT).on('error', (err) => {
   console.log(err)
 })
