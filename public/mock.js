@@ -1,4 +1,4 @@
-const { connect, adminService } = require('../services')
+const { connect } = require('../services')
 const { Location } = require('../models')
 const locations = require('./data')
 
