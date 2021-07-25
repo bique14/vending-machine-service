@@ -1,4 +1,4 @@
-const check = (items) =>
+const checkItemQuantity = (items) =>
   items
     .map((i) => {
       const f = i.items
@@ -8,4 +8,7 @@ const check = (items) =>
     })
     .filter((i) => i.nearlyOutOfStock.length !== 0)
 
-module.exports = check
+const findItem = (location, itemSlug) =>
+  location.items.find((i) => i.slug === itemSlug)
+
+module.exports = { checkItemQuantity, findItem }

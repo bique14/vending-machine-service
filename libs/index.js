@@ -1,3 +1,3 @@
-const filterItemQuantity = require('./item.lib')
+const { checkItemQuantity, findItem } = require('./item.lib')
 
-module.exports = filterItemQuantity
+module.exports = { checkItemQuantity, findItem }
