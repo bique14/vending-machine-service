@@ -13,7 +13,10 @@ app.use(admin.allowedMethods())
 app.use(client.routes())
 app.use(client.allowedMethods())
 
-const server = app.listen(NODE_PORT).on('error', (err) => {
+const PORT = process.env.PORT || NODE_PORT
+
+console.log(`server running at port: ${PORT}`)
+const server = app.listen(PORT).on('error', (err) => {
   console.log(err)
 })
 
