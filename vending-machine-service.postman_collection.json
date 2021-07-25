@@ -1,0 +1,278 @@
+{
+	"info": {
+		"_postman_id": "f6bc3a8c-4baf-4bc6-a040-31323ec1a156",
+		"name": "vending-machine-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "http://localhost:20001/silom",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20001/silom",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"silom"
+							]
+						},
+						"description": "Get items by location"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:20001/buy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"location\": \"silom\",\n\t\"item\": \"itemSlug\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:20001/buy",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"buy"
+							]
+						},
+						"description": "Buy item"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "http://localhost:20001/admin",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "http://localhost:20001/admin",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"admin"
+							]
+						},
+						"description": "Get all location and item in location"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:20001/admin/check-quantity",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"silom\",\n    \"item\": \"itemSlug13209\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:20001/admin/check-quantity",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"admin",
+								"check-quantity"
+							]
+						},
+						"description": "Check items quantity is less than 10"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:20001/admin/silom",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"silom\",\n    \"item\": \"itemSlug13209\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:20001/admin/silom",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"admin",
+								"silom"
+							]
+						},
+						"description": "Get items by location"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:20001/admin/create-location",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"slug\": \"ratchatewi\",\n  \"name\": \"BTS Ratchatewi\",\n  \"items\": [\n    {\n      \"slug\": \"item-in-ratchatewi\",\n      \"name\": \"item-name-ratchatewi\",\n      \"image\": \"item-image\",\n      \"price\": \"10\",\n      \"quantity\": {\n        \"total\": 100,\n        \"remaining\": 53\n      }\n    }\n  ]\n}"
+						},
+						"url": {
+							"raw": "http://localhost:20001/admin/create-location",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"admin",
+								"create-location"
+							]
+						},
+						"description": "Create a new location and initial items"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:20001/admin/add-item",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"ratchatewi\",\n    \"item\": {\n        \"slug\": \"item-in-ratchatewi-2\",\n        \"name\": \"item-name-item-in-ratchatewi-2\",\n        \"image\": \"item-image\",\n        \"price\": \"10\",\n        \"quantity\": {\n            \"total\": 100,\n            \"remaining\": 2\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "http://localhost:20001/admin/add-item",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"admin",
+								"add-item"
+							]
+						},
+						"description": "Add a new item in location"
+					},
+					"response": []
+				},
+				{
+					"name": "http://localhost:20001/admin/restock",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"location\": \"ratchatewi\",\n    \"item\": \"item-in-ratchatewi-2\"\n}"
+						},
+						"url": {
+							"raw": "http://localhost:20001/admin/restock",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "20001",
+							"path": [
+								"admin",
+								"restock"
+							]
+						},
+						"description": "Restock item by location and item slug"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
