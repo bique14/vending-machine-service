@@ -1,14 +1,14 @@
 const mongoose = require('mongoose')
-const { DB_HOST, DB_PORT, DB_NAME } = require('../config')
+const { DB_HOST, DB_PORT, DB_NAME, MONGO_HOST } = require('../config')
 
 const connect = () => {
-  mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`, {
+  mongoose.connect(MONGO_HOST, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
   })
   mongoose.connection.once('open', () => {
-    console.log(`👍 Connected to database ${DB_HOST}:${DB_PORT}/${DB_NAME}`)
+    console.log(`👍 Connected to database ${MONGO_HOST}`)
   })
 
   mongoose.connection.on('error', console.error)
