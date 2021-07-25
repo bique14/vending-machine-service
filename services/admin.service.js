@@ -1,7 +1,4 @@
-const { mongoose } = require('./database')
-const { Location, Item } = require('../models')
-
-const db = mongoose.connection
+const { Location } = require('../models')
 
 const getAllLocationAndItem = async () => {
   return Location.find({}, (error, result) => {

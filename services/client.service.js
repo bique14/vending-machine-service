@@ -1,7 +1,4 @@
-const { mongoose } = require('./database')
-const { Location, Item } = require('../models')
-
-const db = mongoose.connection
+const { Location } = require('../models')
 
 const getItemsByLocation = async (locationSlug) => {
   return Location.find({ slug: locationSlug }, (error, result) => {

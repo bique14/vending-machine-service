@@ -4,12 +4,13 @@
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
-    "ecmaVersion": 2019
+    "ecmaVersion": 2020
   },
   "env": {
     "es6": true,
     "node": true
   },
+  "ignorePatterns": ["temp.js", "**/models/location.js"],
   "rules": {
     "eqeqeq": "error",
     "handle-callback-err": "error",
